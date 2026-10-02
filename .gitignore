@@ -10,3 +10,4 @@ screenshots
 
 .vercel
 .env*
+debug.log
