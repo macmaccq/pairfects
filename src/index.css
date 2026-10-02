@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Pairfect brand — taken from the logo */
+  --color-mint: #1ce787;
+  --color-mint-soft: #d4f9e6;
+  --color-mint-deep: #0a7445; /* accessible green for text on light backgrounds */
+  --color-ink: #18171e;
+  --color-ink-soft: #24232c;
+  --color-ink-line: #34333d;
+  --color-paper: #f7f8f5;
+  --color-line: #e3e6df;
+  --color-muted: #595863;
+  --color-muted-dark: #b3b2bb;
+
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(24 23 30 / 0.04), 0 8px 24px -12px rgb(24 23 30 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(24 23 30 / 0.05), 0 18px 40px -16px rgb(24 23 30 / 0.22);
+
+  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-mint);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

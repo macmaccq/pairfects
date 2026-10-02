@@ -1,0 +1,16 @@
+# Not needed to build the site on Vercel
+node_modules
+dist
+.vercel
+*.local
+.env*
+
+# Tests and test output
+tests
+test-results
+playwright-report
+screenshots
+playwright.config.js
+
+# Original source photos (the site uses optimized copies in src/assets and public)
+new-assets
